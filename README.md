@@ -1,2 +1,2 @@
-# OpenGL
-Practice for OpenGL
+# OpenGL Practicing
+Learn from LearnOpenGL CN
