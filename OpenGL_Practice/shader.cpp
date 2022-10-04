@@ -1,3 +1,8 @@
+#include <glad/glad.h>
+
+#include <fstream>
+#include <sstream>
+#include <iostream>
 #include "shader.h"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
@@ -8,8 +13,8 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     std::ifstream vShaderFile;
     std::ifstream fShaderFile;
 
-    vShaderFile.exceptions(std::ifstream::failbit || std::ifstream::badbit);
-    fShaderFile.exceptions(std::ifstream::failbit || std::ifstream::badbit);
+    vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+    fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
     try {
         // Open files
@@ -19,13 +24,13 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
         // Read Buffer
         std::stringstream vShaderStream, fShaderStream;
         vShaderStream << vShaderFile.rdbuf();
-        fShaderStream << fShaderStream.rdbuf();
+        fShaderStream << fShaderFile.rdbuf();
         vShaderFile.close();
         fShaderFile.close();
 
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
-    } catch (const std::exception&) {
+    } catch (std::ifstream::failure& e) {
         std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
 
