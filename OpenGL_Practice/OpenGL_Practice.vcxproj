@@ -134,12 +134,16 @@
   <ItemGroup>
     <ClCompile Include="demo.cpp" />
     <ClCompile Include="glad.c" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="shader.h" />
+    <ClCompile Include="shader\shader.cpp" />
+    <ClCompile Include="shader\shaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FragmentShader.glsl" />
-    <None Include="VertexShader.glsl" />
+    <None Include="shader\FragmentShader.glsl" />
+    <None Include="shader\VertexShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shader\shader.h" />
+    <ClInclude Include="shader\shaderProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

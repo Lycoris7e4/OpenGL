@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-#include "shader.h"
+#include "shader/shader.h"
+#include "shader/shaderProgram.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -27,7 +28,9 @@ int main()
     #pragma endregion
 
     // Shader
-    Shader ourShader("VertexShader.glsl", "FragmentShader.glsl");
+    VertexShader vertShader("shader/VertexShader.glsl");
+    FragmentShader fragShader("shader/FragmentShader.glsl");
+    ShaderProgram ourShader(&vertShader, &fragShader);
 
     // Triangles
     float tri_1[] = {
@@ -53,8 +56,9 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         ourShader.use();
+        ourShader.setUniform("offset", 0.5f);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0 , 3);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

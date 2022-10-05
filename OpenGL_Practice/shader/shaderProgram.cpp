@@ -4,12 +4,10 @@
 #include "shader.h"
 #include "shaderProgram.h"
 
-template<class Shader1, class Shader2>
-ShaderProgram<class Shader1, class Shader2>::ShaderProgram(Shader1 shader1, Shader2 shader2): ID{0} {
-
+ShaderProgram::ShaderProgram(Shader* shader1, Shader* shader2): ID{0} {
 	ID = glCreateProgram();
-	glAttachShader(ID, shader1.getID());
-	glAttachShader(ID, shader2.getID());
+	glAttachShader(ID, shader1->getID());
+	glAttachShader(ID, shader2->getID());
 	glLinkProgram(ID);
 
 	int success{};
@@ -21,33 +19,23 @@ ShaderProgram<class Shader1, class Shader2>::ShaderProgram(Shader1 shader1, Shad
 	}
 }
 
-template<class Shader1, class Shader2>
-ShaderProgram<class Shader1, class Shader2>::~ShaderProgram()
-{
+ShaderProgram::~ShaderProgram(){
 	if (ID != 0)
 		glDeleteProgram(ID);
 }
 
-template<class Shader1, class Shader2>
-void ShaderProgram<class Shader1, class Shader2>::setUniform(std::string name, bool value) const noexcept
-{
-	glUniform1i(glGetUniformLocation(ID, name.data()), static_cast<int>(value));
-}
-
-template<class Shader1, class Shader2>
-void ShaderProgram<class Shader1, class Shader2>::setUniform(std::string name, int value) const noexcept
-{
-	glUniform1i(glGetUniformLocation(ID, name.data()), value);
-}
-
-template<class Shader1, class Shader2>
-void ShaderProgram<class Shader1, class Shader2>::setUniform(std::string name, float value) const noexcept
-{
-	glUniform1f(glGetUniformLocation(ID, name.data()), value);
-}
-
-template<class Shader1, class Shader2>
-void ShaderProgram<class Shader1, class Shader2>::use() const noexcept
-{
+void ShaderProgram::use() const noexcept{
 	glUseProgram(ID);
+}
+
+void ShaderProgram::setUniform(const std::string& name, bool value) const noexcept{
+	glUniform1i(glGetUniformLocation(ID, name.c_str()), static_cast<int>(value));
+}
+
+void ShaderProgram::setUniform(const std::string& name, int value) const noexcept{
+	glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+}
+
+void ShaderProgram::setUniform(const std::string& name, float value) const noexcept{
+	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }

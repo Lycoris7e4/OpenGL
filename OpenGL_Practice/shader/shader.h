@@ -8,10 +8,11 @@ public:
 	explicit Shader(std::string file_path);
 	~Shader();
 
-	constexpr unsigned getID() const noexcept { return ID; }
+	virtual unsigned getID() const noexcept { return ID; }
 
 protected:
 	unsigned ID;
+
 	std::string source;
 };
 
