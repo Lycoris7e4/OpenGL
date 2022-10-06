@@ -16,38 +16,47 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Resources\Shader">
+    <Filter Include="Headers\Shader">
       <UniqueIdentifier>{c44f8459-2d6f-4293-ae2c-0d907fac825a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="demo.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="shader\shaderProgram.cpp">
-      <Filter>Resources\Shader</Filter>
+      <Filter>Headers\Shader</Filter>
     </ClCompile>
     <ClCompile Include="shader\shader.cpp">
-      <Filter>Resources\Shader</Filter>
+      <Filter>Headers\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="resource\glad.c">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\stb_image.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\FragmentShader.glsl">
-      <Filter>Shader</Filter>
-    </None>
-    <None Include="shader\VertexShader.glsl">
-      <Filter>Shader</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="shader\shader.h">
-      <Filter>Resources\Shader</Filter>
+      <Filter>Headers\Shader</Filter>
     </ClInclude>
     <ClInclude Include="shader\shaderProgram.h">
-      <Filter>Resources\Shader</Filter>
+      <Filter>Headers\Shader</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\00_FragmentShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\00_VertexShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\01_FragmentShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\01_VertexShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
