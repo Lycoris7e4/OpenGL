@@ -28,16 +28,15 @@ int main()
     #pragma endregion
 
     // Shader
-    VertexShader vertShader("shader/VertexShader.glsl");
-    FragmentShader fragShader("shader/FragmentShader.glsl");
+    VertexShader vertShader("shader/00_VertexShader.glsl");
+    FragmentShader fragShader("shader/00_FragmentShader.glsl");
     ShaderProgram ourShader(&vertShader, &fragShader);
 
-    // Triangles
+    // Triangle
     float tri_1[] = {
-        // Pos              // Color
-         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
-        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f
+       -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f
     };
 
     unsigned int VAO, VBO;
