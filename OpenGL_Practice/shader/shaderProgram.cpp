@@ -1,5 +1,4 @@
 #include <glad/glad.h>
-#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
 #include "shader.h"
@@ -41,10 +40,6 @@ void ShaderProgram::setUniform(const std::string& name, float value) const noexc
 	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }
 
-void ShaderProgram::setUniform(const std::string& name, GLsizei numMatrix, int isTranspose, glm::mat4 trans) const noexcept {
-	glUniformMatrix4fv(
-		glGetUniformLocation(
-			ID, name.c_str()), numMatrix, 
-			isTranspose,
-			glm::value_ptr(trans));
+void ShaderProgram::setUniform(const std::string& name, GLsizei numMatrix, int isTranspose, float* value) const noexcept {
+	glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), numMatrix, isTranspose, value);
 }

@@ -126,9 +126,17 @@ int main()
         glm::mat4 transform = glm::mat4(1.0f);
         transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-        ourShader.setUniform("transform", 1, GL_FALSE, transform);
+        ourShader.setUniform("transform", 1, GL_FALSE, glm::value_ptr(transform));
 
         glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+        transform = glm::mat4(1.0f); // reset it to identity matrix
+        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+        float scaleAmount = static_cast<float>(fabs(sin(glfwGetTime())));
+        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+        ourShader.setUniform("transform", 1, GL_FALSE, &transform[0][0]);
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
