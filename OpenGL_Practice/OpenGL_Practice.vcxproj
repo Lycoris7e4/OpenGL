@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Zac\OpenGL\includes;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Zac\OpenGL\includes;D:\Zac\OpenGL\glm;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Zac\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

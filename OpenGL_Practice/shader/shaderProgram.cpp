@@ -1,4 +1,5 @@
 #include <glad/glad.h>
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
 #include "shader.h"
@@ -28,14 +29,22 @@ void ShaderProgram::use() const noexcept{
 	glUseProgram(ID);
 }
 
-void ShaderProgram::setUniform(const std::string& name, bool value) const noexcept{
+void ShaderProgram::setUniform(const std::string& name, bool value) const noexcept {
 	glUniform1i(glGetUniformLocation(ID, name.c_str()), static_cast<int>(value));
 }
 
-void ShaderProgram::setUniform(const std::string& name, int value) const noexcept{
+void ShaderProgram::setUniform(const std::string& name, int value) const noexcept {
 	glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
 
-void ShaderProgram::setUniform(const std::string& name, float value) const noexcept{
+void ShaderProgram::setUniform(const std::string& name, float value) const noexcept {
 	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+}
+
+void ShaderProgram::setUniform(const std::string& name, GLsizei numMatrix, int isTranspose, glm::mat4 trans) const noexcept {
+	glUniformMatrix4fv(
+		glGetUniformLocation(
+			ID, name.c_str()), numMatrix, 
+			isTranspose,
+			glm::value_ptr(trans));
 }
