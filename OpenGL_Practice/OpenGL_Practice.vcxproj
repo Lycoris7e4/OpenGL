@@ -132,11 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="coordinate.cpp" />
     <ClCompile Include="resource\glad.c" />
     <ClCompile Include="resource\stb_image.cpp" />
     <ClCompile Include="shader\shader.cpp" />
-    <ClCompile Include="shader\shaderProgram.cpp" />
-    <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader\shader.h" />
@@ -147,6 +146,8 @@
     <None Include="shader\00_VertexShader.glsl" />
     <None Include="shader\01_FragmentShader.glsl" />
     <None Include="shader\01_VertexShader.glsl" />
+    <None Include="shader\02_FragmentShader.glsl" />
+    <None Include="shader\02_VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

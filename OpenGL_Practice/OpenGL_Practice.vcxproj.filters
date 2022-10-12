@@ -24,17 +24,14 @@
     <ClCompile Include="shader\shader.cpp">
       <Filter>Resources\Shader Class</Filter>
     </ClCompile>
-    <ClCompile Include="shader\shaderProgram.cpp">
-      <Filter>Resources\Shader Class</Filter>
-    </ClCompile>
-    <ClCompile Include="texture.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="resource\glad.c">
       <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="resource\stb_image.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="coordinate.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +53,12 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="shader\01_VertexShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\02_FragmentShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\02_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
