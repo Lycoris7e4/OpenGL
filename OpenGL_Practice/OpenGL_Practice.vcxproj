@@ -135,6 +135,7 @@
     <ClCompile Include="coordinate.cpp" />
     <ClCompile Include="resource\glad.c" />
     <ClCompile Include="resource\stb_image.cpp" />
+    <ClCompile Include="shaderProgram.cpp" />
     <ClCompile Include="shader\shader.cpp" />
   </ItemGroup>
   <ItemGroup>

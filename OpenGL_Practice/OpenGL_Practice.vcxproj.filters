@@ -33,6 +33,9 @@
     <ClCompile Include="coordinate.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="shaderProgram.cpp">
+      <Filter>Resources\Shader Class</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader\shader.h">
