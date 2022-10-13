@@ -30,11 +30,11 @@
     <ClCompile Include="resource\stb_image.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
-    <ClCompile Include="coordinate.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="shaderProgram.cpp">
       <Filter>Resources\Shader Class</Filter>
+    </ClCompile>
+    <ClCompile Include="coordinate.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
