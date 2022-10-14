@@ -18,6 +18,10 @@ void processInput(GLFWwindow* window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+float x_angular = 0.0f;
+float y_angular = 0.0f;
+float z_dist = -4.0f;
+
 int main()
 {
     // Window Setup
@@ -156,6 +160,8 @@ int main()
     #pragma endregion
 
     glm::mat4 projection(1.0f);
+    projection = glm::perspective(glm::radians(50.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+    ourShader.setMat4("projection", projection);
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -173,11 +179,8 @@ int main()
         ourShader.use();
 
         glm::mat4 view(1.0f);
-        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        view = glm::translate(view, glm::vec3(x_angular, y_angular, z_dist));
         ourShader.setMat4("view", view);
-
-        projection = glm::perspective(glm::radians(90.0f - fabs(40.0f * sin((float)glfwGetTime()))), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        ourShader.setMat4("projection", projection);
 
         glBindVertexArray(VAO);
         for (unsigned int i = 0; i < 10; i++)
@@ -210,5 +213,31 @@ void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+    
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+        x_angular += 0.1f;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+        x_angular -= 0.1f;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+        if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
+            z_dist += 0.1f;
+        }
+        else {
+            y_angular += 0.1f;
+        }
+    } 
+
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+        if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
+            z_dist -= 0.1f;
+        }
+        else {
+            y_angular -= 0.1f;
+        }
+    }
 }
 
