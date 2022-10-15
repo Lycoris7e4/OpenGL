@@ -2,7 +2,6 @@
 #define SHADER_PROGRAM_H
 
 #include <glm/glm.hpp>
-
 #include <string>
 
 class Shader;

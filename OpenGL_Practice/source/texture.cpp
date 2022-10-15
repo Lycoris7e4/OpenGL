@@ -8,8 +8,8 @@
 #include <iostream>
 #include <algorithm>
 
-#include "shader/shader.h"
-#include "shader/shaderProgram.h"
+#include "../shader/shader.h"
+#include "../shader/shaderProgram.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -105,8 +105,8 @@ int main()
     stbi_image_free(data);
 
     ourShader.use();
-    ourShader.setUniform("texture1", 0);
-    ourShader.setUniform("texture2", 1);
+    ourShader.setInt("texture1", 0);
+    ourShader.setInt("texture2", 1);
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -121,12 +121,12 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         ourShader.use();
-        ourShader.setUniform("mixValue", mixValue);
+        ourShader.setFloat("mixValue", mixValue);
 
         glm::mat4 transform = glm::mat4(1.0f);
         transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-        ourShader.setUniform("transform", 1, GL_FALSE, glm::value_ptr(transform));
+        ourShader.setMat4("transform", transform);
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -135,7 +135,7 @@ int main()
         transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
         float scaleAmount = static_cast<float>(fabs(sin(glfwGetTime())));
         transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
-        ourShader.setUniform("transform", 1, GL_FALSE, &transform[0][0]);
+        ourShader.setMat4("transform", transform);
 
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

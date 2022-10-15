@@ -2,6 +2,7 @@
 #define SHADER_H
 
 #include <string>
+#include "shaderProgram.h"
 
 class Shader {
 public:

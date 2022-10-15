@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "shader/shader.h"
-#include "shader/shaderProgram.h"
+#include "../shader/shader.h"
+#include "../shader/shaderProgram.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -34,9 +34,11 @@ int main()
 
     // Triangle
     float tri_1[] = {
-       -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-        0.0f,  0.5f, 0.0f
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top 
+
     };
 
     unsigned int VAO, VBO;
@@ -55,7 +57,7 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         ourShader.use();
-        ourShader.setUniform("offset", 0.5f);
+        ourShader.setFloat("offset", 0.5f);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
