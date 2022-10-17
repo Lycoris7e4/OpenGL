@@ -48,6 +48,9 @@
     <ClCompile Include="source\triangle.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="source\lighting.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader\shader.h">
@@ -77,6 +80,15 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="shader\02_VertexShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\03_FragmentShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\03_VertexShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\LightingShader.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

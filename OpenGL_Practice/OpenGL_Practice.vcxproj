@@ -141,11 +141,12 @@
     <ClCompile Include="source\coordinate.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="source\lighting.cpp" />
     <ClCompile Include="source\texture.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\triangle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,9 @@
     <None Include="shader\01_VertexShader.glsl" />
     <None Include="shader\02_FragmentShader.glsl" />
     <None Include="shader\02_VertexShader.glsl" />
+    <None Include="shader\03_FragmentShader.glsl" />
+    <None Include="shader\03_VertexShader.glsl" />
+    <None Include="shader\LightingShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
