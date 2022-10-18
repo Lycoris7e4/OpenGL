@@ -454,7 +454,6 @@ FodyWeavers.xsd
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -496,7 +495,6 @@ imgui.ini
 ## General build artifacts
 *.o
 *.obj
-*.exe
 examples/build/*
 examples/*/Debug/*
 examples/*/Release/*
