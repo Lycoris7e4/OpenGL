@@ -135,6 +135,14 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="resource\glad.c" />
+    <ClCompile Include="resource\ImGui\imgui.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="resource\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="resource\stb_image.cpp" />
     <ClCompile Include="shader\shader.cpp" />
     <ClCompile Include="shader\shaderProgram.cpp" />
@@ -150,6 +158,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\includes\ImGui\imconfig.h" />
+    <ClInclude Include="..\includes\ImGui\imgui.h" />
+    <ClInclude Include="..\includes\ImGui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl2.h" />
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\includes\ImGui\imgui_internal.h" />
+    <ClInclude Include="..\includes\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="..\includes\ImGui\imstb_textedit.h" />
+    <ClInclude Include="..\includes\ImGui\imstb_truetype.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
@@ -163,7 +181,8 @@
     <None Include="shader\02_VertexShader.glsl" />
     <None Include="shader\03_FragmentShader.glsl" />
     <None Include="shader\03_VertexShader.glsl" />
-    <None Include="shader\LightingShader.glsl" />
+    <None Include="shader\LightingFragmentShader.glsl" />
+    <None Include="shader\LightingVertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

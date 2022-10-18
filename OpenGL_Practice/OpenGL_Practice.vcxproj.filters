@@ -22,6 +22,9 @@
     <Filter Include="Resources\Camera Class">
       <UniqueIdentifier>{a186403e-b53a-455f-b4bc-7fec8ed8d2a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\ImGui">
+      <UniqueIdentifier>{128ed2d1-e812-4853-b3fd-7388112083bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shader\shader.cpp">
@@ -51,6 +54,30 @@
     <ClCompile Include="source\lighting.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_demo.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_draw.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_tables.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_widgets.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_impl_glfw.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_impl_opengl2.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Resources\ImGui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader\shader.h">
@@ -61,6 +88,36 @@
     </ClInclude>
     <ClInclude Include="camera\camera.h">
       <Filter>Resources\Camera Class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imconfig.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui_impl_glfw.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl2.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3_loader.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imgui_internal.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imstb_rectpack.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imstb_textedit.h">
+      <Filter>Resources\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\ImGui\imstb_truetype.h">
+      <Filter>Resources\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +145,10 @@
     <None Include="shader\03_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\LightingShader.glsl">
+    <None Include="shader\LightingFragmentShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\LightingVertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
