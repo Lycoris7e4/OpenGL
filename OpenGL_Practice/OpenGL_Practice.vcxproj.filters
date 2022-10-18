@@ -130,28 +130,28 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\00_FragmentShader.glsl">
+    <None Include="shader\tri_FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\00_VertexShader.glsl">
+    <None Include="shader\tri_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\01_FragmentShader.glsl">
+    <None Include="shader\tex_FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\01_VertexShader.glsl">
+    <None Include="shader\tex_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\02_FragmentShader.glsl">
+    <None Include="shader\coo_FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\02_VertexShader.glsl">
+    <None Include="shader\coo_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\03_FragmentShader.glsl">
+    <None Include="shader\lig_FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\03_VertexShader.glsl">
+    <None Include="shader\lig_VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
     <None Include="shader\LightingFragmentShader.glsl">

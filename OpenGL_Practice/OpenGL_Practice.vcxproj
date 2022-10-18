@@ -187,14 +187,14 @@
     <ClInclude Include="shader\shaderProgram.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\00_FragmentShader.glsl" />
-    <None Include="shader\00_VertexShader.glsl" />
-    <None Include="shader\01_FragmentShader.glsl" />
-    <None Include="shader\01_VertexShader.glsl" />
-    <None Include="shader\02_FragmentShader.glsl" />
-    <None Include="shader\02_VertexShader.glsl" />
-    <None Include="shader\03_FragmentShader.glsl" />
-    <None Include="shader\03_VertexShader.glsl" />
+    <None Include="shader\tri_FragmentShader.glsl" />
+    <None Include="shader\tri_VertexShader.glsl" />
+    <None Include="shader\tex_FragmentShader.glsl" />
+    <None Include="shader\tex_VertexShader.glsl" />
+    <None Include="shader\coo_FragmentShader.glsl" />
+    <None Include="shader\coo_VertexShader.glsl" />
+    <None Include="shader\lig_FragmentShader.glsl" />
+    <None Include="shader\lig_VertexShader.glsl" />
     <None Include="shader\LightingFragmentShader.glsl" />
     <None Include="shader\LightingVertexShader.glsl" />
   </ItemGroup>
