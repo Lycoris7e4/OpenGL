@@ -28,8 +28,8 @@ int main()
     #pragma endregion
 
     // Shader
-    VertexShader vertShader("shader/00_VertexShader.glsl");
-    FragmentShader fragShader("shader/00_FragmentShader.glsl");
+    VertexShader vertShader("shader/tri_VertexShader.glsl");
+    FragmentShader fragShader("shader/tri_FragmentShader.glsl");
     ShaderProgram ourShader(&vertShader, &fragShader);
 
     // Triangle

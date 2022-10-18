@@ -36,7 +36,7 @@ int main()
     #pragma endregion
 
     // Shader
-    ShaderProgram ourShader(new VertexShader{"shader/01_VertexShader.glsl"}, new FragmentShader{"shader/01_FragmentShader.glsl"});
+    ShaderProgram ourShader(new VertexShader{"shader/tex_VertexShader.glsl"}, new FragmentShader{"shader/tex_FragmentShader.glsl"});
 
     // Rectangles
     float vertices[] = {

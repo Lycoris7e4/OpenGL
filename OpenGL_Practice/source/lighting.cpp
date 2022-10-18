@@ -61,8 +61,8 @@ int main() {
 
     // Shader
     ShaderProgram ourShader(
-        new VertexShader{ "shader/03_VertexShader.glsl" },
-        new FragmentShader{ "shader/03_FragmentShader.glsl" });
+        new VertexShader{ "shader/lig_VertexShader.glsl" },
+        new FragmentShader{ "shader/lig_FragmentShader.glsl" });
     ShaderProgram lightingShader(
         new VertexShader{ "shader/LightingVertexShader.glsl" },
         new FragmentShader{ "shader/LightingFragmentShader.glsl" });

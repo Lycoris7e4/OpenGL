@@ -51,7 +51,7 @@ int main() {
     #pragma endregion
 
     // Shader
-    ShaderProgram ourShader(new VertexShader{"shader/02_VertexShader.glsl"}, new FragmentShader{"shader/02_FragmentShader.glsl"});
+    ShaderProgram ourShader(new VertexShader{"shader/coo_VertexShader.glsl"}, new FragmentShader{"shader/coo_FragmentShader.glsl"});
 
     // Cube
     float vertices[] = {
