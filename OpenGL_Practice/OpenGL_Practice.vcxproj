@@ -74,6 +74,13 @@
     <IncludePath>D:\Zac\OpenGL\includes;D:\Zac\OpenGL\glm;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Zac\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\Zac\OpenGL\includes;D:\Zac\OpenGL\glm;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Zac\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\Demo\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -108,12 +115,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,12 +131,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>opengl32.lib;glfw3.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,27 +159,30 @@
     <ClCompile Include="shader\shaderProgram.cpp" />
     <ClCompile Include="source\coordinate.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\lighting.cpp" />
     <ClCompile Include="source\texture.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\triangle.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\includes\ImGui\imconfig.h" />
-    <ClInclude Include="..\includes\ImGui\imgui.h" />
-    <ClInclude Include="..\includes\ImGui\imgui_impl_glfw.h" />
-    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl2.h" />
-    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3.h" />
-    <ClInclude Include="..\includes\ImGui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="..\includes\ImGui\imgui_internal.h" />
-    <ClInclude Include="..\includes\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="..\includes\ImGui\imstb_textedit.h" />
-    <ClInclude Include="..\includes\ImGui\imstb_truetype.h" />
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="resource\ImGui\imconfig.h" />
+    <ClInclude Include="resource\ImGui\imgui.h" />
+    <ClInclude Include="resource\ImGui\imgui_impl_glfw.h" />
+    <ClInclude Include="resource\ImGui\imgui_impl_opengl2.h" />
+    <ClInclude Include="resource\ImGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="resource\ImGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="resource\ImGui\imgui_internal.h" />
+    <ClInclude Include="resource\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="resource\ImGui\imstb_textedit.h" />
+    <ClInclude Include="resource\ImGui\imstb_truetype.h" />
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
   </ItemGroup>
