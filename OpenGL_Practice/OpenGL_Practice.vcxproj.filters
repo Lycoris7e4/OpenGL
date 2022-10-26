@@ -22,16 +22,10 @@
     <Filter Include="Resources\Camera Class">
       <UniqueIdentifier>{a186403e-b53a-455f-b4bc-7fec8ed8d2a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\ImGui">
-      <UniqueIdentifier>{128ed2d1-e812-4853-b3fd-7388112083bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\ImGui">
-      <UniqueIdentifier>{8f269c70-106f-497c-9597-405cd2978dcd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers\Camera Class">
       <UniqueIdentifier>{0efc0ff6-0b76-49d4-8639-b7ec75fc5583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\ShaderClass">
+    <Filter Include="Headers\Shader Class">
       <UniqueIdentifier>{9061a757-b8e3-4ed3-a692-a851cbff9873}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -63,70 +57,16 @@
     <ClCompile Include="source\lighting.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_demo.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_draw.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_tables.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_widgets.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_impl_glfw.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_impl_opengl2.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="resource\ImGui\imgui_impl_opengl3.cpp">
-      <Filter>Resources\ImGui</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource\ImGui\imconfig.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui_impl_glfw.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl2.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl3.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl3_loader.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imgui_internal.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imstb_rectpack.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imstb_textedit.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="resource\ImGui\imstb_truetype.h">
-      <Filter>Headers\ImGui</Filter>
-    </ClInclude>
     <ClInclude Include="camera\camera.h">
       <Filter>Headers\Camera Class</Filter>
     </ClInclude>
     <ClInclude Include="shader\shader.h">
-      <Filter>Headers\ShaderClass</Filter>
+      <Filter>Headers\Shader Class</Filter>
     </ClInclude>
     <ClInclude Include="shader\shaderProgram.h">
-      <Filter>Headers\ShaderClass</Filter>
+      <Filter>Headers\Shader Class</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

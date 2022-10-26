@@ -146,14 +146,6 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="resource\glad.c" />
-    <ClCompile Include="resource\ImGui\imgui.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_impl_opengl2.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_tables.cpp" />
-    <ClCompile Include="resource\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="resource\stb_image.cpp" />
     <ClCompile Include="shader\shader.cpp" />
     <ClCompile Include="shader\shaderProgram.cpp" />
@@ -161,7 +153,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="source\lighting.cpp" />
+    <ClCompile Include="source\lighting.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\texture.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -173,16 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="resource\ImGui\imconfig.h" />
-    <ClInclude Include="resource\ImGui\imgui.h" />
-    <ClInclude Include="resource\ImGui\imgui_impl_glfw.h" />
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl2.h" />
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl3.h" />
-    <ClInclude Include="resource\ImGui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="resource\ImGui\imgui_internal.h" />
-    <ClInclude Include="resource\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="resource\ImGui\imstb_textedit.h" />
-    <ClInclude Include="resource\ImGui\imstb_truetype.h" />
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
   </ItemGroup>
