@@ -189,8 +189,8 @@ int main() {
         ourShader.setVec3("viewPos", camera.Position);
 
         // Light Settings
-        ourShader.setVec3("light.ambient", 0.1f, 0.1f, 0.1f);
-        ourShader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
+        ourShader.setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
+        ourShader.setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
         ourShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 
         ourShader.setFloat("light.constant", 1.0f);
@@ -225,15 +225,6 @@ int main() {
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
-
-        lightingShader.use();
-        lightingShader.setMat4("projection", projection);
-        lightingShader.setMat4("view", view);
-
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
-        lightingShader.setMat4("model", model);
 
         glBindVertexArray(lightVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
