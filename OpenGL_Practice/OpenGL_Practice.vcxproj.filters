@@ -28,6 +28,9 @@
     <Filter Include="Headers\Shader Class">
       <UniqueIdentifier>{9061a757-b8e3-4ed3-a692-a851cbff9873}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{b6685b0a-8bf1-4ccb-beb4-733a63695d6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shader\shader.cpp">

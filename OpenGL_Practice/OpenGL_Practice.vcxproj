@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Zac\OpenGL\includes;D:\Zac\OpenGL\glm;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Zac\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\includes;$(ProjectDir)..\glm;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\Zac\OpenGL\includes;D:\Zac\OpenGL\glm;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Zac\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\includes;$(ProjectDir)..\glm;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
     <OutDir>.\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
@@ -116,6 +116,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,6 +134,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
