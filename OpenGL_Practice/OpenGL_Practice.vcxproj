@@ -167,11 +167,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="vertex\vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
+    <ClInclude Include="vertex\vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\tri_FragmentShader.glsl" />

@@ -27,4 +27,4 @@ public:
 	explicit FragmentShader(std::string file_path);
 };
 
-#endif
+#endif // SHADER_H

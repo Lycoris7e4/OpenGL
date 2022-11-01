@@ -33,4 +33,4 @@ public:
     void setMat4(const std::string& name, const glm::mat4& mat) const noexcept;
 };
 
-#endif
+#endif // SHADER_PROGRAM_H

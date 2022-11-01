@@ -53,4 +53,4 @@ private:
     // Calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectors();
 };
-#endif
+#endif // CAMERA_H
