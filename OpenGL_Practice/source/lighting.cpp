@@ -9,6 +9,7 @@
 
 #include "../shader/shader.h"
 #include "../camera/camera.h"
+#include "../vertex/vertex.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -61,12 +62,14 @@ int main() {
 #pragma endregion
 
     // Shader
+#pragma region
     ShaderProgram ourShader(
         new VertexShader{ "shader/lig_VertexShader.glsl" },
         new FragmentShader{ "shader/lig_FragmentShader.glsl" });
     ShaderProgram lightingShader(
         new VertexShader{ "shader/LightingVertexShader.glsl" },
         new FragmentShader{ "shader/LightingFragmentShader.glsl" });
+#pragma endregion
 
     // Cube
     float vertices[] = {
@@ -130,33 +133,16 @@ int main() {
 
     // Buffers
 #pragma region
-    unsigned int cubeVAO, VBO;
-    glGenVertexArrays(1, &cubeVAO);
-    glGenBuffers(1, &VBO);
+    Vertex vertex(2);
+    vertex.initVAO(0);
+    vertex.setBuffer(vertices, sizeof(vertices));
+    vertex.setAttrib(0, 3, 8, 0);
+    vertex.setAttrib(1, 3, 8, 3);
+    vertex.setAttrib(2, 2, 8, 6);
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindVertexArray(cubeVAO);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
-#pragma endregion
-
-    // Light Buffer
-#pragma region
-    unsigned int lightVAO;
-    glGenVertexArrays(1, &lightVAO);
-    glBindVertexArray(lightVAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+    vertex.initVAO(1);
+    vertex.setBuffer(vertices, sizeof(vertices), 1);
+    vertex.setAttrib(0, 3, 8, 0, 1);
 #pragma endregion
 
     // Diffuse Map
@@ -215,7 +201,7 @@ int main() {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
 
-        glBindVertexArray(cubeVAO);
+        vertex.open(0);
         for (unsigned int i = 0; i < 10; i++) {
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
@@ -226,16 +212,12 @@ int main() {
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
-        glBindVertexArray(lightVAO);
+        vertex.open(1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-    glDeleteVertexArrays(1, &cubeVAO);
-    glDeleteVertexArrays(1, &lightVAO);
-    glDeleteBuffers(1, &VBO);
 
     glfwTerminate();
     return 0;

@@ -11,7 +11,7 @@ Vertex::~Vertex() {
 
 void Vertex::initVAO(GLuint id) {
     if (id < VAOSize) {
-        glGenVertexArrays(1, (&VAO)[id]);
+        glGenVertexArrays(1, VAO + id);
     }
     else {
         throw;
