@@ -63,6 +63,9 @@
     <ClCompile Include="vertex\vertex.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="mesh\mesh.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h">
@@ -75,6 +78,9 @@
       <Filter>Headers\Shader Class</Filter>
     </ClInclude>
     <ClInclude Include="vertex\vertex.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh\mesh.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

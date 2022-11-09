@@ -132,17 +132,22 @@ int main() {
     };
 
     // Buffers
+
 #pragma region
     Vertex vertex(2);
-    vertex.initVAO(0);
+    vertex.initVAO();
+    vertex.open();
     vertex.setBuffer(vertices, sizeof(vertices));
-    vertex.setAttrib(0, 3, 8, 0);
-    vertex.setAttrib(1, 3, 8, 3);
-    vertex.setAttrib(2, 2, 8, 6);
+    vertex.setAttrib(0, 3, 8 * sizeof(float), (void*)0);
+    vertex.setAttrib(1, 3, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    vertex.setAttrib(2, 2, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    vertex.close();
 
     vertex.initVAO(1);
+    vertex.open(1);
     vertex.setBuffer(vertices, sizeof(vertices), 1);
-    vertex.setAttrib(0, 3, 8, 0, 1);
+    vertex.setAttrib(0, 3, 8 * sizeof(float), (void*)0, 1);
+    vertex.close();
 #pragma endregion
 
     // Diffuse Map
@@ -201,7 +206,7 @@ int main() {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
 
-        vertex.open(0);
+        vertex.open();
         for (unsigned int i = 0; i < 10; i++) {
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
@@ -214,6 +219,7 @@ int main() {
 
         vertex.open(1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
+        vertex.close();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
