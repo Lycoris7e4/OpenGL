@@ -5,6 +5,7 @@ Mesh::Mesh(std::vector<MESH::Vertex> vertices, std::vector<unsigned int> indices
     this->vertices = vertices;
     this->indices = indices;
     this->textures = textures;
+
     setupMesh();
 }
 
@@ -13,6 +14,7 @@ void Mesh::Draw(ShaderProgram *shader) {
     unsigned int specularNr = 1;
     unsigned int normalNr = 1;
     unsigned int heightNr = 1;
+
     for (unsigned int i = 0; i < textures.size(); i++)
     {
         glActiveTexture(GL_TEXTURE0 + i);
@@ -27,7 +29,7 @@ void Mesh::Draw(ShaderProgram *shader) {
         else if (name == "texture_height")
             number = std::to_string(heightNr++);
 
-        glUniform1i(glGetUniformLocation(shader->ID, (name + number).c_str()), i);
+        shader->setInt((name + number).c_str(), i);
         glBindTexture(GL_TEXTURE_2D, textures[i].id);
     }
 
@@ -50,8 +52,7 @@ void Mesh::setupMesh() {
     vertex.setAttrib(2, 2, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, TexCoords));
     vertex.setAttrib(3, 3, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, Tangent));
     vertex.setAttrib(4, 3, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, Bitangent));
-    glEnableVertexAttribArray(5);
-    glVertexAttribIPointer(5, 4, GL_INT, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, m_BoneIDs));
+    vertex.setAttribI(5, 4, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, m_BoneIDs));
     vertex.setAttrib(6, 4, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, m_Weights));
 
     vertex.close();

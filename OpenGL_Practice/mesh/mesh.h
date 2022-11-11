@@ -5,14 +5,15 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <../vertex/vertex.h>
-
 #include <string>
 #include <vector>
+
+#include "../vertex/vertex.h"
 
 #define MAX_BONE_INFLUENCE 4
 
 class ShaderProgram;
+
 namespace MESH {
     struct Vertex;
     struct Texture;
