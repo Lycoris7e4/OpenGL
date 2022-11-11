@@ -54,3 +54,8 @@ void Vertex::setAttrib(GLuint index, GLint size, GLsizei stride, const void* poi
     glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, stride, pointer);
 }
 
+void Vertex::setAttribI(GLuint index, GLint size, GLsizei stride, const void* pointer, GLuint id) {
+    glEnableVertexAttribArray(index);
+    glVertexAttribIPointer(index, size, GL_INT, stride, pointer);
+}
+

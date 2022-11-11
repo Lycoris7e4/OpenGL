@@ -64,11 +64,11 @@ int main() {
     // Shader
 #pragma region
     ShaderProgram ourShader(
-        new VertexShader{ "shader/lig_VertexShader.glsl" },
-        new FragmentShader{ "shader/lig_FragmentShader.glsl" });
+        new VertexShader{ "shader/lighting_vs.glsl" },
+        new FragmentShader{ "shader/lighting_fs.glsl" });
     ShaderProgram lightingShader(
-        new VertexShader{ "shader/LightingVertexShader.glsl" },
-        new FragmentShader{ "shader/LightingFragmentShader.glsl" });
+        new VertexShader{ "shader/lighting_lig_vs.glsl" },
+        new FragmentShader{ "shader/lighting_lig_fs.glsl" });
 #pragma endregion
 
     // Cube
@@ -132,7 +132,6 @@ int main() {
     };
 
     // Buffers
-
 #pragma region
     Vertex vertex(2);
     vertex.initVAO();

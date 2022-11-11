@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "../shader/shader.h"
-#include "../shader/shaderProgram.h"
+#include "../vertex/vertex.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -28,8 +28,8 @@ int main()
     #pragma endregion
 
     // Shader
-    VertexShader vertShader("shader/tri_VertexShader.glsl");
-    FragmentShader fragShader("shader/tri_FragmentShader.glsl");
+    VertexShader vertShader("shader/triangle_vs.glsl");
+    FragmentShader fragShader("shader/triangle_fs.glsl");
     ShaderProgram ourShader(&vertShader, &fragShader);
 
     // Triangle
@@ -41,32 +41,29 @@ int main()
 
     };
 
-    unsigned int VAO, VBO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(tri_1), tri_1, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    // Buffer
+#pragma region
+    Vertex vertex;
+    vertex.initVAO();
+    vertex.open();
+    vertex.setBuffer(tri_1, sizeof(tri_1));
+    vertex.setAttrib(0, 3, 6 * sizeof(float), (void*)0);
+    vertex.setAttrib(1, 3, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    vertex.close();
+#pragma endregion
 
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
         ourShader.use();
         ourShader.setFloat("offset", 0.5f);
-        glBindVertexArray(VAO);
+        
+        vertex.open();
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
 
     glfwTerminate();
     return 0;

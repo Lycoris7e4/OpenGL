@@ -21,6 +21,7 @@ public:
     void setBuffer(const void* data, GLsizeiptr size, GLuint id = 0);
     void setIndex(const GLuint* data, GLsizeiptr size, GLuint id = 0);
     void setAttrib(GLuint index, GLint size, GLsizei stride, const void* pointer, GLuint id = 0);
+    void setAttribI(GLuint index, GLint size, GLsizei stride, const void* pointer, GLuint id = 0);
 };
 
 #endif // VERTEX_H

@@ -37,7 +37,8 @@ int main()
     #pragma endregion
 
     // Shader
-    ShaderProgram ourShader(new VertexShader{"shader/tex_VertexShader.glsl"}, new FragmentShader{"shader/tex_FragmentShader.glsl"});
+    ShaderProgram ourShader(new VertexShader{"shader/texture_vs.glsl"}, 
+                            new FragmentShader{"shader/texture_fs.glsl"});
 
     // Rectangles
     float vertices[] = {
@@ -55,10 +56,12 @@ int main()
 
     Vertex vertex;
     vertex.initVAO();
+    vertex.open();
     vertex.setBuffer(vertices, sizeof(vertices));
     vertex.setIndex(indices, sizeof(indices));
-    vertex.setAttrib(0, 3, 5, 0);
-    vertex.setAttrib(1, 2, 5, 3);
+    vertex.setAttrib(0, 3, 5 * sizeof(float), (void*)0);
+    vertex.setAttrib(1, 2, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    vertex.close();
 
     // Texture1
     unsigned int texture1;

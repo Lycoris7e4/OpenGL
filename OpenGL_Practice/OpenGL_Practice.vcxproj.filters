@@ -16,49 +16,19 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{dc3a2880-47fa-437c-a74c-b72dff7f8128}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Camera Class">
-      <UniqueIdentifier>{0efc0ff6-0b76-49d4-8639-b7ec75fc5583}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Shader Class">
-      <UniqueIdentifier>{9061a757-b8e3-4ed3-a692-a851cbff9873}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ImGui">
       <UniqueIdentifier>{b6685b0a-8bf1-4ccb-beb4-733a63695d6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Camera Class">
-      <UniqueIdentifier>{a186403e-b53a-455f-b4bc-7fec8ed8d2a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Shader Class">
-      <UniqueIdentifier>{9760c8a6-6e87-4f76-b09c-7dc267a64fe6}</UniqueIdentifier>
+    <Filter Include="Sources\Mains">
+      <UniqueIdentifier>{d01bf46a-11c2-4a9d-920e-30410ac498da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="shader\shader.cpp">
-      <Filter>Sources\Shader Class</Filter>
-    </ClCompile>
     <ClCompile Include="resource\glad.c">
       <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="resource\stb_image.cpp">
       <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="shader\shaderProgram.cpp">
-      <Filter>Sources\Shader Class</Filter>
-    </ClCompile>
-    <ClCompile Include="camera\camera.cpp">
-      <Filter>Sources\Camera Class</Filter>
-    </ClCompile>
-    <ClCompile Include="source\coordinate.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="source\texture.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="source\triangle.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="source\lighting.cpp">
-      <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="vertex\vertex.cpp">
       <Filter>Sources</Filter>
@@ -66,54 +36,87 @@
     <ClCompile Include="mesh\mesh.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="model\model.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\camera.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\shader.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\shaderProgram.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="source\triangle.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="source\texture.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="source\lighting.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="source\coordinate.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="source\modelTest.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera\camera.h">
-      <Filter>Headers\Camera Class</Filter>
-    </ClInclude>
-    <ClInclude Include="shader\shader.h">
-      <Filter>Headers\Shader Class</Filter>
-    </ClInclude>
-    <ClInclude Include="shader\shaderProgram.h">
-      <Filter>Headers\Shader Class</Filter>
-    </ClInclude>
     <ClInclude Include="vertex\vertex.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="mesh\mesh.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="model\model.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\camera.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\shader.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\shaderProgram.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\tri_FragmentShader.glsl">
+    <None Include="shader\triangle_fs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\tri_VertexShader.glsl">
+    <None Include="shader\triangle_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\tex_FragmentShader.glsl">
+    <None Include="shader\texture_fs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\tex_VertexShader.glsl">
+    <None Include="shader\texture_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\coo_FragmentShader.glsl">
+    <None Include="shader\coordinate_fs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\coo_VertexShader.glsl">
+    <None Include="shader\coordinate_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\lig_FragmentShader.glsl">
+    <None Include="shader\lighting_fs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\lig_VertexShader.glsl">
+    <None Include="shader\lighting_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\LightingFragmentShader.glsl">
+    <None Include="shader\lighting_lig_fs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\LightingVertexShader.glsl">
+    <None Include="shader\lighting_lig_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="shader\model_fs.glsl" />
+    <None Include="shader\model_vs.glsl" />
+    <None Include="assimp-vc140-mt.dll" />
   </ItemGroup>
 </Project>

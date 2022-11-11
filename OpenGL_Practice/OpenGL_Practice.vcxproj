@@ -141,15 +141,17 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>opengl32.lib;glfw3.lib;assimp-vc140-mt.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>MSVCRT.lib</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="mesh\mesh.cpp" />
+    <ClCompile Include="model\model.cpp" />
     <ClCompile Include="resource\glad.c" />
     <ClCompile Include="resource\stb_image.cpp" />
     <ClCompile Include="shader\shader.cpp" />
@@ -159,8 +161,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\lighting.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\modelTest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\texture.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -175,21 +181,25 @@
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="mesh\mesh.h" />
+    <ClInclude Include="model\model.h" />
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
     <ClInclude Include="vertex\vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\tri_FragmentShader.glsl" />
-    <None Include="shader\tri_VertexShader.glsl" />
-    <None Include="shader\tex_FragmentShader.glsl" />
-    <None Include="shader\tex_VertexShader.glsl" />
-    <None Include="shader\coo_FragmentShader.glsl" />
-    <None Include="shader\coo_VertexShader.glsl" />
-    <None Include="shader\lig_FragmentShader.glsl" />
-    <None Include="shader\lig_VertexShader.glsl" />
-    <None Include="shader\LightingFragmentShader.glsl" />
-    <None Include="shader\LightingVertexShader.glsl" />
+    <None Include="assimp-vc140-mt.dll" />
+    <None Include="shader\model_fs.glsl" />
+    <None Include="shader\model_vs.glsl" />
+    <None Include="shader\triangle_fs.glsl" />
+    <None Include="shader\triangle_vs.glsl" />
+    <None Include="shader\texture_fs.glsl" />
+    <None Include="shader\texture_vs.glsl" />
+    <None Include="shader\coordinate_fs.glsl" />
+    <None Include="shader\coordinate_vs.glsl" />
+    <None Include="shader\lighting_fs.glsl" />
+    <None Include="shader\lighting_vs.glsl" />
+    <None Include="shader\lighting_lig_fs.glsl" />
+    <None Include="shader\lighting_lig_vs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
