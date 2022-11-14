@@ -117,6 +117,5 @@
     </None>
     <None Include="shader\model_fs.glsl" />
     <None Include="shader\model_vs.glsl" />
-    <None Include="assimp-vc140-mt.dll" />
   </ItemGroup>
 </Project>

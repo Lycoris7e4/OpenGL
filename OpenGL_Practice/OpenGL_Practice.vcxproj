@@ -187,7 +187,6 @@
     <ClInclude Include="vertex\vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assimp-vc140-mt.dll" />
     <None Include="shader\model_fs.glsl" />
     <None Include="shader\model_vs.glsl" />
     <None Include="shader\triangle_fs.glsl" />

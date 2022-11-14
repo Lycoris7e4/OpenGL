@@ -10,7 +10,7 @@ class Vertex{
 public:
     explicit Vertex(GLuint VAOSize = 1);
     ~Vertex();
-    Vertex(const Vertex &other) = delete;
+    Vertex(const Vertex& other) = delete;
     Vertex(const Vertex&& other) = delete;
 
     void initVAO(GLuint id = 0);
