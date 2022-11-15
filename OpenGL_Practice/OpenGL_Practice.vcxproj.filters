@@ -19,6 +19,9 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{b6685b0a-8bf1-4ccb-beb4-733a63695d6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Classes">
+      <UniqueIdentifier>{ca927506-3343-430c-95d2-4f575f6def7b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Sources\Mains">
       <UniqueIdentifier>{d01bf46a-11c2-4a9d-920e-30410ac498da}</UniqueIdentifier>
     </Filter>
@@ -29,24 +32,6 @@
     </ClCompile>
     <ClCompile Include="resource\stb_image.cpp">
       <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="vertex\vertex.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="mesh\mesh.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="model\model.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="camera\camera.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="shader\shader.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="shader\shaderProgram.cpp">
-      <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="source\triangle.cpp">
       <Filter>Sources\Mains</Filter>
@@ -62,6 +47,27 @@
     </ClCompile>
     <ClCompile Include="source\modelTest.cpp">
       <Filter>Sources\Mains</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\camera.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh\mesh.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="model\model.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\shader.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\shaderProgram.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="vertex\vertex.cpp">
+      <Filter>Sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window.cpp">
+      <Filter>Sources\Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +87,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="shader\shaderProgram.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="window\window.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -115,7 +124,11 @@
     <None Include="shader\lighting_lig_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="shader\model_fs.glsl" />
-    <None Include="shader\model_vs.glsl" />
+    <None Include="shader\model_fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\model_vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

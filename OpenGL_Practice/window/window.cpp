@@ -12,8 +12,18 @@ Window::Window() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
-Window::~Window() {
+Window::~Window() {}
 
+GLFWwindow* Window::getWindow() {
+    return window;
+}
+
+float Window::getWidth() {
+    return static_cast<float>(SCR_WIDTH);
+}
+
+float Window::getHeight() {
+    return static_cast<float>(SCR_HEIGHT);
 }
 
 void Window::setup(int width, int height, const char* title) {
@@ -44,33 +54,12 @@ void Window::terminate() {
     glfwTerminate();
 }
 
-bool Window::shouldClose() {
-    return glfwWindowShouldClose(window);
+void Window::setCursor(void (*callback)(GLFWwindow* window, double xpos, double ypos)) {
+    glfwSetCursorPosCallback(window, callback);
 }
 
-void Window::processInput() {
-    //float currentFrame = static_cast<float>(glfwGetTime());
-    //deltaTime = currentFrame - lastFrame;
-    //lastFrame = currentFrame;
-    //if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    //    glfwSetWindowShouldClose(window, true);
-
-    //if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-    //    camera.ProcessKeyboard(FORWARD, deltaTime);
-    //if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-    //    camera.ProcessKeyboard(BACKWARD, deltaTime);
-    //if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-    //    camera.ProcessKeyboard(LEFT, deltaTime);
-    //if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-    //    camera.ProcessKeyboard(RIGHT, deltaTime);
-}
-
-void Window::setCursor() {
-    // glfwSetCursorPosCallback(window, mouse_callback);
-}
-
-void Window::setScroll() {
-    // glfwSetScrollCallback(window, scroll_callback);
+void Window::setScroll(void (*callback)(GLFWwindow* window, double xoffset, double yoffset)) {
+    glfwSetScrollCallback(window, callback);
 }
 
 void Window::disableCursor() {
@@ -79,4 +68,12 @@ void Window::disableCursor() {
 
 void Window::setDepthTest() {
     glEnable(GL_DEPTH_TEST);
+}
+
+void Window::close() {
+    glfwSetWindowShouldClose(window, true);
+}
+
+bool Window::shouldClose() {
+    return glfwWindowShouldClose(window);
 }

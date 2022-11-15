@@ -177,6 +177,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="vertex\vertex.cpp" />
+    <ClCompile Include="window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="shader\shader.h" />
     <ClInclude Include="shader\shaderProgram.h" />
     <ClInclude Include="vertex\vertex.h" />
+    <ClInclude Include="window\window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\model_fs.glsl" />
