@@ -56,7 +56,6 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         ourShader.use();
-        //ourShader.setFloat("offset", 0.5f);
         
         vertex.open();
         glDrawArrays(GL_TRIANGLES, 0, 3);
