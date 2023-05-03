@@ -1,6 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#define ISRECORDING 0
+
 #include <glm/glm.hpp>
 
 enum Camera_Movement {

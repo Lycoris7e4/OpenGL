@@ -15,8 +15,8 @@ public:
 
     void initVAO(GLuint id = 0);
     GLuint& getVAO(GLuint id = 0);
-    void open(GLuint id = 0);
-    void close();
+    void bind(GLuint id = 0);
+    void release();
 
     void setBuffer(const void* data, GLsizeiptr size, GLuint id = 0);
     void setIndex(const GLuint* data, GLsizeiptr size, GLuint id = 0);

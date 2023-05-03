@@ -56,12 +56,12 @@ int main()
 
     Vertex vertex;
     vertex.initVAO();
-    vertex.open();
+    vertex.bind();
     vertex.setBuffer(vertices, sizeof(vertices));
     vertex.setIndex(indices, sizeof(indices));
     vertex.setAttrib(0, 3, 5 * sizeof(float), (void*)0);
     vertex.setAttrib(1, 2, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    vertex.close();
+    vertex.release();
 
     // Texture1
     unsigned int texture1;
@@ -123,7 +123,7 @@ int main()
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
         ourShader.setMat4("transform", transform);
 
-        vertex.open();
+        vertex.bind();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         transform = glm::mat4(1.0f); // reset it to identity matrix

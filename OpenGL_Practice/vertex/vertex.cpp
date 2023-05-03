@@ -27,11 +27,11 @@ GLuint& Vertex::getVAO(GLuint id) {
     }
 }
 
-void Vertex::open(GLuint id) {
+void Vertex::bind(GLuint id) {
     glBindVertexArray(VAO[id]);
 }
 
-void Vertex::close() {
+void Vertex::release() {
     glBindVertexArray(0);
 }
 

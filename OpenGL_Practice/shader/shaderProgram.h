@@ -9,7 +9,7 @@ class Shader;
 class ShaderProgram {
 public:
     unsigned int ID;
-    ShaderProgram(Shader* shader1, Shader* shader2);
+    ShaderProgram(Shader* shader1, Shader* shader2, Shader* shader3 = nullptr);
 
     ~ShaderProgram();
 

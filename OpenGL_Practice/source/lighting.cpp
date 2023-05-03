@@ -135,18 +135,18 @@ int main() {
 #pragma region
     Vertex vertex(2);
     vertex.initVAO();
-    vertex.open();
+    vertex.bind();
     vertex.setBuffer(vertices, sizeof(vertices));
     vertex.setAttrib(0, 3, 8 * sizeof(float), (void*)0);
     vertex.setAttrib(1, 3, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     vertex.setAttrib(2, 2, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    vertex.close();
+    vertex.release();
 
     vertex.initVAO(1);
-    vertex.open(1);
+    vertex.bind(1);
     vertex.setBuffer(vertices, sizeof(vertices), 1);
     vertex.setAttrib(0, 3, 8 * sizeof(float), (void*)0, 1);
-    vertex.close();
+    vertex.release();
 #pragma endregion
 
     // Diffuse Map
@@ -205,7 +205,7 @@ int main() {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
 
-        vertex.open();
+        vertex.bind();
         for (unsigned int i = 0; i < 10; i++) {
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
@@ -216,9 +216,9 @@ int main() {
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
-        vertex.open(1);
+        vertex.bind(1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        vertex.close();
+        vertex.release();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -228,13 +228,11 @@ int main() {
     return 0;
 }
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow* window)
-{
+void processInput(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 

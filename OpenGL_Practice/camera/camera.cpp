@@ -1,5 +1,6 @@
 #include <glad/glad.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 #include "camera.h"
 
 Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch) {
@@ -75,4 +76,9 @@ void Camera::updateCameraVectors() {
     // Recalculate Up and Right
     Right = glm::normalize(glm::cross(Front, WorldUp));
     Up = glm::normalize(glm::cross(Right, Front));
+
+#if ISRECORDING
+    std::cout << "glm::vec3(" << Position.x << "f, " << Position.y << "f, " << Position.z << "f), "
+                 "glm::vec3(0, 1, 0), " << Yaw << "f, " << Pitch << "f" << std::endl;
+#endif // ISRECORDING
 }

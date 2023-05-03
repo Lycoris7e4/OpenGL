@@ -69,6 +69,9 @@
     <ClCompile Include="window\window.cpp">
       <Filter>Sources\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="source\archModel.cpp">
+      <Filter>Sources\Mains</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex\vertex.h">
@@ -128,6 +131,15 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="shader\model_vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\arch_fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\arch_gs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shader\arch_vs.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

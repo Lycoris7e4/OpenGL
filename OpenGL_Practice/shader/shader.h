@@ -27,4 +27,9 @@ public:
 	explicit FragmentShader(std::string file_path);
 };
 
+class GeometryShader : public Shader {
+public:
+	explicit GeometryShader(std::string file_path);
+};
+
 #endif // SHADER_H

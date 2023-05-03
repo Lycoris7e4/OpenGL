@@ -6,10 +6,11 @@
 #include <sstream>
 #include <iostream>
 
-ShaderProgram::ShaderProgram(Shader* shader1, Shader* shader2) {
+ShaderProgram::ShaderProgram(Shader* shader1, Shader* shader2, Shader* shader3) {
     ID = glCreateProgram();
     glAttachShader(ID, shader1->getID());
     glAttachShader(ID, shader2->getID());
+    if (shader3 != nullptr) glAttachShader(ID, shader3->getID());
     glLinkProgram(ID);
 
     int success{};
@@ -19,6 +20,10 @@ ShaderProgram::ShaderProgram(Shader* shader1, Shader* shader2) {
         glGetProgramInfoLog(ID, 512, nullptr, log_info);
         std::cout << "ERROR:SHADER::PROGRAM::LINK_FAILED\n" << log_info << std::endl;
     }
+    
+    glDeleteShader(shader1->getID());
+    glDeleteShader(shader2->getID());
+    if (shader3 != nullptr) glDeleteShader(shader3->getID());
 }
 
 ShaderProgram::~ShaderProgram() {

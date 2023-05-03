@@ -33,16 +33,16 @@ void Mesh::Draw(ShaderProgram *shader) {
         glBindTexture(GL_TEXTURE_2D, textures[i].id);
     }
 
-    vertex.open();
+    vertex.bind();
     glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
-    vertex.close();
+    vertex.release();
 
     glActiveTexture(GL_TEXTURE0);
 }
 
 void Mesh::setupMesh() {
     vertex.initVAO();
-    vertex.open();
+    vertex.bind();
 
     vertex.setBuffer(&vertices[0], vertices.size() * sizeof(MESH::Vertex));
     vertex.setIndex(&indices[0], indices.size() * sizeof(unsigned int));
@@ -55,5 +55,5 @@ void Mesh::setupMesh() {
     vertex.setAttribI(5, 4, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, m_BoneIDs));
     vertex.setAttrib(6, 4, sizeof(MESH::Vertex), (void*)offsetof(MESH::Vertex, m_Weights));
 
-    vertex.close();
+    vertex.release();
 }

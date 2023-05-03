@@ -45,11 +45,11 @@ int main()
 #pragma region
     Vertex vertex;
     vertex.initVAO();
-    vertex.open();
+    vertex.bind();
     vertex.setBuffer(tri_1, sizeof(tri_1));
     vertex.setAttrib(0, 3, 6 * sizeof(float), (void*)0);
     vertex.setAttrib(1, 3, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-    vertex.close();
+    vertex.release();
 #pragma endregion
 
     // Render loop
@@ -57,7 +57,7 @@ int main()
     {
         ourShader.use();
         
-        vertex.open();
+        vertex.bind();
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);

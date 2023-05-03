@@ -4,20 +4,19 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <stb_image.h>
 
 #include <iostream>
 
 #include "../shader/shader.h"
 #include "../camera/camera.h"
-#include "../model/model.h"
 #include "../window/window.h"
+#include "../vertex/vertex.h"
 
 void processInput(Window* window);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.779634f, 1.99844f, -1.52823f), glm::vec3(0, 1, 0), -19.9997f, -5.59997f);
 float lastX;
 float lastY;
 bool firstMouse = true;
@@ -27,10 +26,11 @@ float lastFrame = 0.0f;
 
 int main() {
     // Window
+#pragma region
     Window* window = new Window();
     try {
-        window->init(800, 600, "LearnOpenGL");
-    }
+        window->init(800, 600, "Arch Model");
+    } 
     catch (ERROR::GLADINIT) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
@@ -43,19 +43,34 @@ int main() {
     window->setCursor(mouse_callback);
     window->setScroll(scroll_callback);
     window->disableCursor();
-    window->setup({SETTINGS::DEPTH_TEST});
 
-    stbi_set_flip_vertically_on_load(false);
+    window->setup({SETTINGS::BLEND, SETTINGS::DEPTH_TEST, SETTINGS::MULTISAMPLE});
+#pragma endregion
 
     // Camera
     lastX = window->getWidth() / 2.0f;
     lastY = window->getHeight() / 2.0f;
 
     // Shader
-    ShaderProgram ourShader(new VertexShader("shader/model_vs.glsl"), new FragmentShader("shader/model_fs.glsl"));
+    ShaderProgram shader(new VertexShader("shader/arch_vs.glsl"), 
+                         new GeometryShader("shader/arch_gs.glsl"),
+                         new FragmentShader("shader/arch_fs.glsl"));
+    shader.use();
 
-    // Model
-    Model ourModel("model/nanosuit/nanosuit.obj");
+    // Line (Top Line of the Arch)
+    float vertices[] = {
+        2.0f, 2.0f, -2.0f,
+        4.0f, 2.0f, -2.0f,
+        6.0f, 1.5f, -2.0f,
+        8.0f, 2.0f, -2.0f
+    };
+
+    Vertex vertex;
+    vertex.initVAO();
+    vertex.bind();
+    vertex.setBuffer(vertices, sizeof(vertices));
+    vertex.setAttrib(0, 3, 3 * sizeof(float), nullptr);
+    vertex.release();
 
     // Rendering
     while (!window->shouldClose()) {
@@ -65,22 +80,20 @@ int main() {
 
         processInput(window);
 
-        glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        ourShader.use();
-
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), window->getWidth() / window->getHeight(), 0.1f, 100.0f);
-        ourShader.setMat4("projection", projection);
-
         glm::mat4 view = camera.GetViewMatrix();
-        ourShader.setMat4("view", view);
-
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-        ourShader.setMat4("model", model);
-        ourModel.Draw(&ourShader);
+        glm::mat4 mvp = projection * view * model;
+
+        shader.setMat4("mvp", mvp);
+        shader.setFloat("radius", 0.1f);
+        shader.setVec4("color", 1.0f, 1.0f, 0.0f, 1.0f);
+
+        vertex.bind();
+        glDrawArrays(GL_LINE_STRIP, 0, 3);
+        vertex.release();
 
         window->update();
     }
@@ -95,13 +108,13 @@ void processInput(Window* window) {
         glfwSetWindowShouldClose(w, true);
 
     if (glfwGetKey(w, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
+        camera.ProcessKeyboard(FORWARD, deltaTime * 0.5);
     if (glfwGetKey(w, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
+        camera.ProcessKeyboard(BACKWARD, deltaTime * 0.5);
     if (glfwGetKey(w, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
+        camera.ProcessKeyboard(LEFT, deltaTime * 0.5);
     if (glfwGetKey(w, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+        camera.ProcessKeyboard(RIGHT, deltaTime * 0.5);
 }
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn) {

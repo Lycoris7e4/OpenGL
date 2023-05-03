@@ -54,3 +54,18 @@ FragmentShader::FragmentShader(std::string file_path): Shader{file_path} {
 		std::cout << "ERROR:SHADER::FRAGMENT::COMPILEATION_FAILED\n" << log << std::endl;
 	}
 }
+
+GeometryShader::GeometryShader(std::string file_path) : Shader{ file_path } {
+	ID = glCreateShader(GL_GEOMETRY_SHADER);
+	auto sourceStr = source.c_str();
+	glShaderSource(ID, 1, &sourceStr, nullptr);
+	glCompileShader(ID);
+
+	int success{};
+	char log[512];
+	glGetShaderiv(ID, GL_COMPILE_STATUS, &success);
+	if (!success) {
+		glGetShaderInfoLog(ID, 512, nullptr, log);
+		std::cout << "ERROR:SHADER::GEOMETRY::COMPILEATION_FAILED\n" << log << std::endl;
+	}
+}

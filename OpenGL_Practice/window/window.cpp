@@ -5,10 +5,10 @@
 
 #include <iostream>
 
-Window::Window() {
+Window::Window(int major, int minor) {
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
@@ -26,7 +26,7 @@ float Window::getHeight() {
     return static_cast<float>(SCR_HEIGHT);
 }
 
-void Window::setup(int width, int height, const char* title) {
+void Window::init(int width, int height, const char* title) {
     window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (window == NULL) {
         this->terminate();
@@ -43,6 +43,33 @@ void Window::setup(int width, int height, const char* title) {
 
     SCR_WIDTH = width;
     SCR_HEIGHT = height;
+}
+
+void Window::setup(std::vector<SETTINGS> settings) {
+    for (auto& setting : settings) {
+        switch (setting) {
+            case SETTINGS::BLEND:
+                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+                glEnable(GL_BLEND);
+                break;
+            case SETTINGS::LINE_SMOOTH:
+                glEnable(GL_LINE_SMOOTH);
+                break;
+            case SETTINGS::DEPTH_TEST:
+                glEnable(GL_DEPTH_TEST);
+                break;
+            case SETTINGS::POINT_SIZE:
+                glEnable(GL_PROGRAM_POINT_SIZE);
+                break;
+            case SETTINGS::CULL_FACE:
+                glEnable(GL_CULL_FACE);
+                break;
+            case SETTINGS::MULTISAMPLE:
+                glEnable(GL_MULTISAMPLE);
+                break;
+            default: break;
+        }
+    }
 }
 
 void Window::update() {
@@ -64,10 +91,6 @@ void Window::setScroll(void (*callback)(GLFWwindow* window, double xoffset, doub
 
 void Window::disableCursor() {
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-}
-
-void Window::setDepthTest() {
-    glEnable(GL_DEPTH_TEST);
 }
 
 void Window::close() {
